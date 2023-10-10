@@ -24,4 +24,21 @@ html {
     // Sidebar
     --sidebar-bg-color: #fff;
     --sidebar-shadow-color: rgba(200, 200, 200, 0.4);
+
+    // Category item
+    --cate-item-bg-color: #eee;
+    --cate-item-thumb-color: #fff;
+    --cate-item-title-color: #000;
+
+    @include abstracts.screen(md) {
+        --cate-item-bg-color: #fff;
+    }
+
+    // Button
+    --filter-btn-color: #6c6c72;
+    --filter-btn-bg-color: #fff;
+
+    // Product-card
+    --product-card-bg-color: #fff;
+    --product-card-shadow-color: rgba(237, 237, 246, 0.2);
 }
