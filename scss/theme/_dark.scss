@@ -2,10 +2,11 @@
 
 html.dark {
     --text-color: #fff;
+    --bg-color: #171c28;
     --icon-color: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(82deg) brightness(105%)
         contrast(105%);
 
-    --header-bg-color: #171c28;
+    --header-bg-color: var(--bg-color);
     --body-bg-color: #292e39;
     --top-act-group-bg-color: #292e39;
     --top-act-group-shadow-color: rgba(0, 0, 0, 0.2);
@@ -20,7 +21,7 @@ html.dark {
     --dropdown-shadow-color: rgba(23, 28, 40, 0.4);
     --dropdown-arrow-color: brightness(0) saturate(100%) invert(16%) sepia(9%) saturate(1447%) hue-rotate(186deg)
         brightness(96%) contrast(87%);
-    --top-menu-border-color: #171c28;
+    --top-menu-border-color: var(--bg-color);
     --menu-column-icon-color: brightness(0) saturate(100%) invert(99%) sepia(10%) saturate(0%) hue-rotate(160deg)
         brightness(103%) contrast(95%);
 
@@ -29,15 +30,21 @@ html.dark {
     --sidebar-shadow-color: rgba(23, 28, 40, 0.4);
 
     // Category item
-    --cate-item-bg-color: #171c28;
+    --cate-item-bg-color: var(--bg-color);
     --cate-item-thumb-color: #292e39;
     --cate-item-title-color: #fff;
 
     // Button
     --filter-btn-color: #fff;
-    --filter-btn-bg-color: #171c28;
+    --filter-btn-bg-color: var(--bg-color);
 
     // Product-card
-    --product-card-bg-color: #171c28;
+    --product-card-bg-color: var(--bg-color);
     --product-card-shadow-color: rgba(0, 0, 0, 0.2);
+
+    // Filter form
+    --filter-form-bg-color: var(--dropdown-bg-color);
+    --filter-form-shadow-color: rgba(0, 0, 0, 0.4);
+    --filter-form-tag-bg-color: var(--bg-color);
+    --filter-form-arrow-color: var(--dropdown-arrow-color);
 }
