@@ -49,4 +49,13 @@ html.dark {
     --filter-form-shadow-color: rgba(0, 0, 0, 0.4);
     --filter-form-tag-bg-color: var(--bg-color);
     --filter-form-arrow-color: var(--dropdown-arrow-color);
+
+    // Auth
+    --auth-content-bg-color: #292e39;
+    --auth-intro-bg-color: #171c28;
+    --auth-intro-text-color: #b9babe;
+    --auth-heading-color: #b9babe;
+
+    // Form
+    --form-placeholder-color: #b9babe;
 }

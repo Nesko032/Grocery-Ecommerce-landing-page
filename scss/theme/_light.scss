@@ -54,4 +54,7 @@ html {
     @include abstracts.screen(md) {
         --auth-intro-bg-color: var(--background-white);
     }
+
+    // Form
+    --form-placeholder-color: #d2d1d6;
 }
