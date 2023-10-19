@@ -4,50 +4,54 @@ html {
     --text-color: #1a162e;
     --icon-color: brightness(0) saturate(100%) invert(10%) sepia(24%) saturate(1159%) hue-rotate(210deg) brightness(98%)
         contrast(101%);
-
+    --background-white: #fff;
     --header-bg-color: #eee;
     --body-bg-color: #f6f6f6;
     --footer-bg-color: var(--header-bg-color);
-    --top-act-group-bg-color: #fff;
+    --top-act-group-bg-color: var(--background-white);
     --top-act-group-shadow-color: rgba(237, 237, 246, 0.2);
     --top-act-group-separate-color: #ededf6;
 
     @include abstracts.screen(lg) {
-        --header-bg-color: #fff;
+        --header-bg-color: var(--background-white);
         --header-shadow-color: rgba(237, 237, 246, 0.2);
     }
 
     // Dropdown
-    --dropdown-bg-color: #fff;
+    --dropdown-bg-color: var(--background-white);
     --dropdown-shadow-color: rgba(200, 200, 200, 0.4);
     --top-menu-border-color: #d2d1d6;
 
     // Sidebar
-    --sidebar-bg-color: #fff;
+    --sidebar-bg-color: var(--background-white);
     --sidebar-shadow-color: rgba(200, 200, 200, 0.4);
 
     // Category item
     --cate-item-bg-color: #eee;
-    --cate-item-thumb-color: #fff;
+    --cate-item-thumb-color: var(--background-white);
     --cate-item-title-color: #000;
 
     @include abstracts.screen(md) {
-        --cate-item-bg-color: #fff;
+        --cate-item-bg-color: var(--background-white);
     }
 
     // Button
     --filter-btn-color: #6c6c72;
-    --filter-btn-bg-color: #fff;
+    --filter-btn-bg-color: var(--background-white);
 
     // Product-card
-    --product-card-bg-color: #fff;
+    --product-card-bg-color: var(--background-white);
     --product-card-shadow-color: rgba(237, 237, 246, 0.2);
 
     // Filter form
-    --filter-form-bg-color: #fff;
+    --filter-form-bg-color: var(--background-white);
     --filter-form-shadow-color: rgba(200, 200, 200, 0.4);
     --filter-form-tag-bg-color: #f8f8fb;
 
     // Auth
-    --auth-content-bg-color: #fff;
+    --auth-content-bg-color: var(--background-white);
+
+    @include abstracts.screen(md) {
+        --auth-intro-bg-color: var(--background-white);
+    }
 }

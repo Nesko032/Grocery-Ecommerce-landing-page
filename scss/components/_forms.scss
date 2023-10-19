@@ -1,6 +1,12 @@
+@use "../abstracts";
+
 .form {
     &__group {
         margin-top: 30px;
+
+        @include abstracts.screen(md) {
+            margin-top: 20px;
+        }
 
         &--inline {
             display: flex;
@@ -16,8 +22,26 @@
         border-radius: 10px;
         border: 1.5px solid #d2d1d6;
 
+        &.invalid {
+            border-color: #f33a58;
+            background: rgba($color: red, $alpha: 0.1);
+        }
+
+        &.invalid ~ .form__error {
+            display: block;
+            text-align: left;
+            font-size: 1.2rem;
+            line-height: 1.6rem;
+            padding: 6px 0 0;
+            color: #f33a58;
+        }
+
         &:focus-within {
             border-color: #77dae6;
+        }
+
+        @include abstracts.screen(md) {
+            height: 48px;
         }
     }
 
@@ -36,6 +60,10 @@
         &::placeholder {
             color: #d2d1d6;
         }
+
+        @include abstracts.screen(md) {
+            font-size: 1.6rem;
+        }
     }
 
     &__pull-right {
@@ -43,15 +71,53 @@
     }
 
     &__checkbox {
+        position: relative;
+
         display: flex;
         align-items: center;
-        gap: 10px;
+
+        user-select: none;
 
         &-label {
+            margin-left: 30px;
             color: #9e9da8;
             font-size: 1.5rem;
             font-weight: 500;
             line-height: 146.667%;
+
+            @include abstracts.screen(md) {
+                font-size: 1.4rem;
+            }
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+        }
+
+        &::before {
+            width: 19px;
+            height: 19px;
+            border-radius: 5px;
+            border: 1.5px solid #9e9da8;
+        }
+    }
+
+    &__checkbox:has(:checked) {
+        &::before {
+            border-color: #ffb700;
+            background: #ffb700;
+        }
+
+        &::after {
+            left: 2px;
+            top: 5px;
+            width: 15px;
+            height: 8px;
+            border: 3px solid;
+            border-color: transparent transparent #fff #fff;
+            rotate: -45deg;
         }
     }
 }

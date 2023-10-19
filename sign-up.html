@@ -54,37 +54,46 @@
                     <h1 class="auth__heading">Sign Up</h1>
                     <p class="auth__desc">Let’s create your account and Shop like a pro and save money.</p>
 
-                    <form action="./index-logined.html" class="form auth__form">
+                    <form action="./index-logined.html" method="POST" class="form auth__form" id="form-login">
                         <div class="form__group">
                             <div class="form__text-input">
-                                <input type="email" name="" id="" placeholder="Email" class="form__input" />
+                                <input type="text" id="email" name="" placeholder="Email" class="form__input" />
                                 <img src="./assets/icons/message.svg" alt="" class="icon form__input-icon" />
                             </div>
-                        </div>
-
-                        <div class="form__group">
-                            <div class="form__text-input">
-                                <input type="password" name="" id="" placeholder="Password" class="form__input" />
-                                <img src="./assets/icons/lock.svg" alt="" class="icon form__input-icon" />
-                            </div>
+                            <span class="form__error"></span>
                         </div>
 
                         <div class="form__group">
                             <div class="form__text-input">
                                 <input
                                     type="password"
-                                    name=""
-                                    id=""
+                                    name="password"
+                                    id="password"
+                                    placeholder="Password"
+                                    class="form__input"
+                                />
+                                <img src="./assets/icons/lock.svg" alt="" class="icon form__input-icon" />
+                            </div>
+                            <span class="form__error"></span>
+                        </div>
+
+                        <div class="form__group">
+                            <div class="form__text-input">
+                                <input
+                                    type="password"
+                                    name="password_confirmation"
+                                    id="password_confirmation"
                                     placeholder="Confirm password"
                                     class="form__input"
                                 />
                                 <img src="./assets/icons/lock.svg" alt="" class="icon form__input-icon" />
                             </div>
+                            <span class="form__error"></span>
                         </div>
 
                         <div class="form__group form__group--inline">
                             <label class="form__checkbox">
-                                <input type="checkbox" name="" id="" class="form__checkbox-input" />
+                                <input type="checkbox" name="" id="" class="form__checkbox-input d-none" />
                                 <span class="form__checkbox-label">Set as default card</span>
                             </label>
 
@@ -102,7 +111,7 @@
 
                     <p class="auth__text">
                         You have an account yet?
-                        <a href="./sign-in.html" class="auth__link">Sign In</a>
+                        <a href="./sign-in.html" class="auth__link auth__text-link">Sign In</a>
                     </p>
                 </div>
             </div>
@@ -110,6 +119,25 @@
 
         <script>
             window.dispatchEvent(new Event("template-loaded"));
+        </script>
+
+        <script src="./assets/js/validator.js"></script>
+        <script>
+            Validator({
+                form: "#form-login",
+                errorSelector: ".form__error",
+                rules: [
+                    Validator.isEmail("#email"),
+                    Validator.minLength("#password", 6),
+                    Validator.isConfirmed(
+                        "#password_confirmation",
+                        function () {
+                            return document.querySelector("#form-login #password").value;
+                        },
+                        "Mật khẩu nhập lại không chính xác"
+                    ),
+                ],
+            });
         </script>
     </body>
 </html>
