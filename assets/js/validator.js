@@ -31,9 +31,9 @@ function Validator(options) {
 
     if (formElement) {
         // Khi submit
-        formElement.onsubmit = function (e) {
-            e.preventDefault();
-        };
+        // formElement.onsubmit = function (e) {
+        //     e.preventDefault();
+        // };
 
         // Xử lý lặp qua mỗi rules và handle event
         options.rules.forEach((rule) => {
@@ -71,7 +71,7 @@ Validator.isRequired = function (selector, message) {
     return {
         selector,
         test: function (value) {
-            return value.trim() ? undefined : message || "Vui lòng nhập trường này!";
+            return value.trim() ? undefined : message || "Please enter this field";
         },
     };
 };
@@ -82,7 +82,7 @@ Validator.isEmail = function (selector, message) {
         test: function (value) {
             var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-            return regex.test(value) ? undefined : message || "Vui lòng nhập email";
+            return regex.test(value) ? undefined : message || "Email is not in correct format";
         },
     };
 };
@@ -91,7 +91,7 @@ Validator.minLength = function (selector, min, message) {
     return {
         selector,
         test: function (value) {
-            return value.length >= min ? undefined : message || `Vui lòng nhập vào tối thiểu ${min} kí tự`;
+            return value.length >= min ? undefined : message || `Please enter at least ${min} characters in this field`;
         },
     };
 };
@@ -100,9 +100,7 @@ Validator.isConfirmed = function (selector, getConfirmValue, message) {
     return {
         selector,
         test: function (value) {
-            return value === getConfirmValue()
-                ? undefined
-                : message || "Mật khẩu không trùng khớp. Xin vui lòng nhập lại!";
+            return value === getConfirmValue() ? undefined : message || "Passwords do not match. Please enter again";
         },
     };
 };

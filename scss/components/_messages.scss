@@ -1,0 +1,14 @@
+@use "../abstracts";
+
+.message {
+    text-align: left;
+    padding: 14px;
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 10px;
+    &--success {
+        border-bottom: 3px solid #46a05c;
+        background: rgba(39, 243, 117, 0.2);
+    }
+}
