@@ -1,10 +1,20 @@
 // Handle Form Validation
 function Validator(options) {
+    function getParent(element, selector) {
+        while (element.parentElement) {
+            if (element.parentElement.matches(selector)) {
+                console.log(element.parentElement);
+                return element.parentElement;
+            }
+            element = element.parentElement;
+        }
+    }
+
     var selectorRules = {};
 
     // Excute Validate
     function validate(inputElement, rule) {
-        var errorElement = inputElement.parentElement.parentElement.querySelector(options.errorSelector);
+        var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
         var errorMessage;
 
         // Lấy ra các rules của selector
@@ -19,10 +29,10 @@ function Validator(options) {
 
         if (errorMessage) {
             errorElement.innerText = errorMessage;
-            inputElement.parentElement.classList.add("invalid");
+            getParent(inputElement, options.formGroupSelector).classList.add("invalid");
         } else {
             errorElement.innerText = "";
-            inputElement.parentElement.classList.remove("invalid");
+            getParent(inputElement, options.formGroupSelector).classList.remove("invalid");
         }
     }
 
@@ -53,9 +63,11 @@ function Validator(options) {
                 };
                 // Handled when user enters
                 inputElement.oninput = function () {
-                    var errorElement = inputElement.parentElement.querySelector(options.errorSelector);
+                    var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(
+                        options.errorSelector
+                    );
                     errorElement.innerText = "";
-                    inputElement.parentElement.classList.remove("invalid");
+                    getParent(inputElement, options.formGroupSelector).classList.remove("invalid");
                 };
             }
         });

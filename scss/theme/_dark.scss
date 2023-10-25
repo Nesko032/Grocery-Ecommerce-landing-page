@@ -47,7 +47,6 @@ html.dark {
     // Filter form
     --filter-form-bg-color: var(--dropdown-bg-color);
     --filter-form-shadow-color: rgba(0, 0, 0, 0.4);
-    --filter-form-tag-bg-color: var(--bg-color);
     --filter-form-arrow-color: var(--dropdown-arrow-color);
 
     // Auth
@@ -58,4 +57,28 @@ html.dark {
 
     // Form
     --form-placeholder-color: #b9babe;
+    --form-tag-bg-color: var(--bg-color);
+
+    // Product detail
+    --product-detail-bg-color: #292e39;
+    --product-detail-info-bg-color: #171c28;
+    --product-detail-info-content-bg-color: transparent;
+    --product-detail-tag-bg-color: #292e39;
+
+    @include abstracts.screen(md) {
+        --product-detail-bg-color: #292e39;
+        --product-detail-info-content-bg-color: #171c28;
+        --product-detail-info-bg-color: transparent;
+    }
+
+    // Breadcrumbs
+    --breadcrumbs-bg-color: #171c28;
+    --breadcrumbs-shadow-color: rgba(23, 28, 40, 0.2);
+
+    @include abstracts.screen(md) {
+        --breadcrumbs-bg-color: #171c28;
+    }
+
+    // Search bar
+    --search-bar-bg-color: #171c28;
 }

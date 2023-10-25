@@ -123,16 +123,19 @@
         <script>
             Validator({
                 form: "#form-login",
+                formGroupSelector: ".form__group",
                 errorSelector: ".form__error",
                 rules: [
+                    Validator.isRequired("#email", "Please enter this field. This field is required"),
                     Validator.isEmail("#email"),
+                    Validator.isRequired("#password", "Please enter this field. This field is required"),
                     Validator.minLength("#password", 6),
                     Validator.isConfirmed(
                         "#password_confirmation",
                         function () {
                             return document.querySelector("#form-login #password").value;
                         },
-                        "Mật khẩu nhập lại không chính xác"
+                        "Password does not match. Please re-enter"
                     ),
                 ],
             });

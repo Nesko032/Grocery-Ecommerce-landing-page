@@ -1,11 +1,25 @@
 @use "../abstracts";
 
 .form {
+    &__group.invalid &__text-input {
+        border-color: #f33a58;
+        background: rgba($color: red, $alpha: 0.1);
+    }
+
     &__group {
         margin-top: 30px;
 
         @include abstracts.screen(md) {
             margin-top: 20px;
+        }
+
+        &.invalid .form__error {
+            display: block;
+            text-align: left;
+            font-size: 1.2rem;
+            line-height: 1.6rem;
+            padding: 6px 0 0;
+            color: #f33a58;
         }
 
         &--inline {
@@ -21,20 +35,6 @@
         padding: 0 12px;
         border-radius: 10px;
         border: 1.5px solid #d2d1d6;
-
-        &.invalid {
-            border-color: #f33a58;
-            background: rgba($color: red, $alpha: 0.1);
-        }
-
-        &.invalid ~ .form__error {
-            display: block;
-            text-align: left;
-            font-size: 1.2rem;
-            line-height: 1.6rem;
-            padding: 6px 0 0;
-            color: #f33a58;
-        }
 
         &:focus-within {
             border-color: #77dae6;
@@ -118,6 +118,85 @@
             border: 3px solid;
             border-color: transparent transparent #fff #fff;
             rotate: -45deg;
+        }
+    }
+
+    &__label {
+        display: block;
+        font-size: 2.2rem;
+        font-weight: 500;
+        line-height: 145.455%;
+
+        &--small {
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+            line-height: 142.857%;
+        }
+    }
+
+    &__select-wrap {
+        display: flex;
+        align-items: center;
+        height: 45px;
+        border-radius: 6px;
+        border: 1px solid #d2d1d6;
+    }
+
+    &__select {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 14px;
+        min-width: var(--width, 108px);
+        height: calc(100% - 10px);
+
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 142.857%;
+
+        cursor: pointer;
+
+        @include abstracts.screen(xl) {
+            flex: 1;
+        }
+
+        @include abstracts.screen(sm) {
+            min-width: auto;
+            width: 100%;
+        }
+    }
+
+    &__select + &__select {
+        border-left: 1px solid #d2d1d6;
+    }
+
+    &__select-arrow {
+        width: 16px;
+    }
+
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 20px;
+
+        @include abstracts.screen(sm) {
+            gap: 10px;
+        }
+    }
+
+    &__tag {
+        padding: 6px 12px;
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 142.857%;
+        border-radius: 6px;
+        color: #9e9da8;
+        background: var(--form-tag-bg-color);
+
+        transition: color 0.2s;
+
+        &:hover {
+            color: var(--text-color);
         }
     }
 }
