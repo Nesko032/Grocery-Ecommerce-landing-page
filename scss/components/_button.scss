@@ -51,6 +51,7 @@
     font-weight: 500;
     border-radius: 6px;
     background: #f8f8fb;
+    white-space: nowrap;
     user-select: none;
 
     + .btn {
@@ -61,7 +62,6 @@
 
     &--text {
         font-weight: 400;
-        color: #9e9da8;
         background: transparent;
     }
 
