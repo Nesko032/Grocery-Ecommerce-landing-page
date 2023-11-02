@@ -82,4 +82,10 @@ html {
 
     // Review card
     --review-card-bg-color: #fafafd;
+    @include abstracts.screen(md) {
+        --review-card-bg-color: #fff;
+    }
+
+    // Text content
+    --text-content-hr-bg-color: #ebebeb;
 }
