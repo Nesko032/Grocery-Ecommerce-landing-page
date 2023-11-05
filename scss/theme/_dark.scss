@@ -10,7 +10,7 @@ html.dark {
     --body-bg-color: #292e39;
     --footer-bg-color: var(--header-bg-color);
     --footer-text-color: #9e9da6;
-    --top-act-group-bg-color: #292e39;
+    --top-act-group-bg-color: var(--body-bg-color);
     --top-act-group-shadow-color: rgba(0, 0, 0, 0.2);
     --top-act-group-separate-color: #ededf6;
 
@@ -33,12 +33,12 @@ html.dark {
         brightness(103%) contrast(95%);
 
     // Sidebar
-    --sidebar-bg-color: #292e39;
+    --sidebar-bg-color: var(--body-bg-color);
     --sidebar-shadow-color: rgba(23, 28, 40, 0.4);
 
     // Category item
     --cate-item-bg-color: var(--bg-color);
-    --cate-item-thumb-color: #292e39;
+    --cate-item-thumb-color: var(--body-bg-color);
     --cate-item-title-color: #fff;
 
     // Button
@@ -55,8 +55,8 @@ html.dark {
     --filter-form-arrow-color: var(--dropdown-arrow-color);
 
     // Auth
-    --auth-content-bg-color: #292e39;
-    --auth-intro-bg-color: #171c28;
+    --auth-content-bg-color: var(--body-bg-color);
+    --auth-intro-bg-color: var(--bg-color);
     --auth-intro-text-color: #b9babe;
     --auth-heading-color: #b9babe;
 
@@ -65,39 +65,39 @@ html.dark {
     --form-tag-bg-color: var(--bg-color);
 
     // Product detail
-    --product-detail-bg-color: #292e39;
-    --product-detail-info-bg-color: #171c28;
+    --product-detail-bg-color: var(--body-bg-color);
+    --product-detail-info-bg-color: var(--bg-color);
     --product-detail-info-content-bg-color: transparent;
-    --product-detail-tag-bg-color: #292e39;
+    --product-detail-tag-bg-color: var(--body-bg-color);
 
     @include abstracts.screen(md) {
-        --product-detail-bg-color: #292e39;
-        --product-detail-info-content-bg-color: #171c28;
+        --product-detail-bg-color: var(--body-bg-color);
+        --product-detail-info-content-bg-color: var(--bg-color);
         --product-detail-info-bg-color: transparent;
     }
 
     // Breadcrumbs
-    --breadcrumbs-bg-color: #171c28;
+    --breadcrumbs-bg-color: var(--bg-color);
     --breadcrumbs-shadow-color: rgba(23, 28, 40, 0.2);
 
     @include abstracts.screen(md) {
-        --breadcrumbs-bg-color: #171c28;
+        --breadcrumbs-bg-color: var(--bg-color);
     }
 
     // Search bar
-    --search-bar-bg-color: #171c28;
+    --search-bar-bg-color: var(--bg-color);
 
     // Review card
-    --review-card-bg-color: #171c28;
+    --review-card-bg-color: var(--bg-color);
 
     // Text content
     --text-content-hr-bg-color: #414349;
 
     // Checkout
-    --checkout-breadcrumbs-bg-color: #171c28;
-    --checkout-cart-info-bg-color: #171c28;
+    --checkout-breadcrumbs-bg-color: var(--bg-color);
+    --checkout-cart-info-bg-color: var(--bg-color);
     --checkout-cart-info-shadow-color: rgba(23, 28, 40, 0.2);
-    --checkout-border-color: #292e39;
+    --checkout-border-color: var(--body-bg-color);
     --checkout-gift-shadow-color: rgba(23, 28, 40, 0.2);
 
     // Dialog

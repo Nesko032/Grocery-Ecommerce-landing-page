@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="">
+<html lang="en" class="dark">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -23,7 +23,7 @@
         <!-- Scripts -->
         <script src="./assets/js/scripts.js"></script>
 
-        <title>Checkout | Grocery Mart</title>
+        <title>Shipping | Grocery Mart</title>
     </head>
     <body>
         <!-- Header -->
@@ -55,7 +55,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#!" class="breadcrumbs__link breadcrumbs__link--current">Checkout</a>
+                            <a href="./checkout.html" class="breadcrumbs__link">
+                                Checkout
+                                <img src="./assets/icons/arrow-right.svg" alt="" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!" class="breadcrumbs__link breadcrumbs__link--current">Shipping</a>
                         </li>
                     </ul>
                 </div>
@@ -65,6 +71,103 @@
                     <div class="row gy-xl-3">
                         <div class="col-8 col-xl-12">
                             <div class="cart-info">
+                                <h1 class="cart-info__heading">1. Shipping, arrives between Mon, May 16-Tue, May 24</h1>
+                                <div class="cart-info__separate"></div>
+
+                                <!-- Checkout Address -->
+                                <div class="user-address">
+                                    <div class="user-address__top">
+                                        <div>
+                                            <h2 class="user-address__title">Shipping address</h2>
+                                            <p class="user-address__desc">Where should we deliver your order?</p>
+                                        </div>
+                                        <button class="user-address__btn btn btn--primary btn--rounded">
+                                            <img class="icon" src="./assets/icons/plus.svg" alt="" />
+                                            Add a new address
+                                        </button>
+                                    </div>
+                                    <div class="user-address__list">
+                                        <!-- Empty address message -->
+                                        <!-- <p class="user-address__message">
+                                            Looks like you don't have an address. Click the button next to add
+                                            <a href="#!" class="user-address__link">a new address.</a>
+                                        </p> -->
+
+                                        <!-- Address 1 -->
+                                        <article class="address-card">
+                                            <div class="address-card__left">
+                                                <div class="address-card__choose">
+                                                    <label class="address-card__checkbox">
+                                                        <input
+                                                            type="checkbox"
+                                                            name=""
+                                                            id=""
+                                                            class="address-card__checkbox-input"
+                                                            checked
+                                                        />
+                                                    </label>
+                                                </div>
+                                                <div class="address-card__info">
+                                                    <h3 class="address-card__title">Imran Khan</h3>
+                                                    <p class="address-card__desc">
+                                                        Museum of Rajas, Sylhet Sadar, Sylhet 3100.
+                                                    </p>
+                                                    <ul class="address-card__list">
+                                                        <li class="address-card__list-item">Shipping</li>
+                                                        <li class="address-card__list-item">Delivery from store</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="address-card__right">
+                                                <div class="address-card__control">
+                                                    <div class="address-card__control-btn">
+                                                        <img src="./assets/icons/edit.svg" alt="" class="icon" />
+                                                        Edit
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+
+                                        <!-- Address 2 -->
+                                        <article class="address-card">
+                                            <div class="address-card__left">
+                                                <div class="address-card__choose">
+                                                    <label class="address-card__checkbox">
+                                                        <input
+                                                            type="checkbox"
+                                                            name=""
+                                                            id=""
+                                                            class="address-card__checkbox-input"
+                                                        />
+                                                    </label>
+                                                </div>
+                                                <div class="address-card__info">
+                                                    <h3 class="address-card__title">Imran Khan</h3>
+                                                    <p class="address-card__desc">
+                                                        AI Hamra City (10th floor), Hazrat Shahjalal Road, Sylhet,
+                                                        Bangladesh
+                                                    </p>
+                                                    <ul class="address-card__list">
+                                                        <li class="address-card__list-item">Shipping</li>
+                                                        <li class="address-card__list-item">Delivery from store</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="address-card__right">
+                                                <div class="address-card__control">
+                                                    <div class="address-card__control-btn">
+                                                        <img src="./assets/icons/edit.svg" alt="" class="icon" />
+                                                        Edit
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+
+                                <div class="cart-info__separate"></div>
+
+                                <h2 class="cart-info__sub-heading">Items details</h2>
                                 <div class="cart-info__list">
                                     <!-- Cart item 1 -->
                                     <article class="cart-item">
@@ -302,7 +405,7 @@
                                     <span>$425.99</span>
                                 </div>
 
-                                <a href="./shipping.html" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                <a href="#!" class="cart-info__next-btn btn btn--primary btn--rounded">
                                     Continue to checkout
                                 </a>
                             </div>
