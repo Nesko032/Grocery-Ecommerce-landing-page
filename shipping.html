@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -81,7 +81,10 @@
                                             <h2 class="user-address__title">Shipping address</h2>
                                             <p class="user-address__desc">Where should we deliver your order?</p>
                                         </div>
-                                        <button class="user-address__btn btn btn--primary btn--rounded">
+                                        <button
+                                            class="user-address__btn btn btn--primary btn--rounded js-toggle"
+                                            toggle-target="#add-new-address"
+                                        >
                                             <img class="icon" src="./assets/icons/plus.svg" alt="" />
                                             Add a new address
                                         </button>
@@ -90,7 +93,13 @@
                                         <!-- Empty address message -->
                                         <!-- <p class="user-address__message">
                                             Looks like you don't have an address. Click the button next to add
-                                            <a href="#!" class="user-address__link">a new address.</a>
+                                            <a
+                                                href="#!"
+                                                class="user-address__link js-toggle"
+                                                toggle-target="#add-new-address"
+                                            >
+                                                a new address.
+                                            </a>
                                         </p> -->
 
                                         <!-- Address 1 -->
@@ -436,14 +445,15 @@
             load("#footer", "./templates/footer.html");
         </script>
 
-        <!-- Dialog / modal -->
-        <div id="delete-confirm" class="dialog hide">
-            <div class="dialog__content">
-                <div class="dialog__text">Lorem ipsum dolor sit amet consectetur?</div>
-                <div class="dialog__bottom">
-                    <button class="btn btn--text dialog__btn js-toggle" toggle-target="#delete-confirm">Cancel</button>
+        <!-- Modal: confirm / remove shopping cart items  -->
+        <div id="delete-confirm" class="modal modal--small hide">
+            <!-- <div class="modal__close">&times;</div> -->
+            <div class="modal__content">
+                <div class="modal__text">Are you sure you would like to remove this item from the shopping cart?</div>
+                <div class="modal__bottom">
+                    <button class="btn btn--text modal__btn js-toggle" toggle-target="#delete-confirm">Cancel</button>
                     <button
-                        class="btn btn--primary dialog__btn btn--no-margin js-toggle"
+                        class="btn btn--primary modal__btn btn--no-margin js-toggle"
                         toggle-target="#delete-confirm"
                     >
                         Confirm
@@ -451,7 +461,185 @@
                 </div>
             </div>
 
-            <div class="dialog__overlay js-toggle" toggle-target="#delete-confirm"></div>
+            <div class="modal__overlay js-toggle" toggle-target="#delete-confirm"></div>
         </div>
+
+        <!-- Modal: add new shipping address  -->
+        <div id="add-new-address" class="modal show">
+            <!-- <div class="modal__close">&times;</div> -->
+            <div class="modal__content">
+                <h2 class="modal__heading">Add new shipping address</h2>
+                <div class="modal__body">
+                    <form action="" id="form-login" class="form">
+                        <div class="form__row">
+                            <!-- Name -->
+                            <div class="form__group">
+                                <label for="name" class="form__label form__label--small">Name</label>
+                                <div class="form__text-input form__text-input--small">
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        placeholder="Your name"
+                                        class="form__input"
+                                    />
+                                </div>
+                                <span class="form__error"></span>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="form__group">
+                                <label for="phone" class="form__label form__label--small">Phone</label>
+                                <div class="form__text-input form__text-input--small">
+                                    <input
+                                        type="tel"
+                                        id="phone"
+                                        name="phone"
+                                        placeholder="Your phone number"
+                                        class="form__input"
+                                    />
+                                </div>
+                                <span class="form__error"></span>
+                            </div>
+                        </div>
+
+                        <!-- Address -->
+                        <div class="form__group">
+                            <label for="house-no" class="form__label form__label--small">Address</label>
+                            <div class="form__text-input form__text-input--small">
+                                <input
+                                    type="text"
+                                    id="house-no"
+                                    name="house-no"
+                                    placeholder="House no"
+                                    class="form__input"
+                                />
+                            </div>
+                            <span class="form__error"></span>
+                        </div>
+
+                        <!-- Street address -->
+                        <div class="form__group">
+                            <div class="form__text-input form__text-input--small">
+                                <input
+                                    type="text"
+                                    id="street-address"
+                                    name="street-address"
+                                    placeholder="Street address"
+                                    class="form__input"
+                                />
+                            </div>
+                            <span class="form__error"></span>
+                        </div>
+
+                        <!-- Near to -->
+                        <div class="form__group">
+                            <div class="form__text-input form__text-input--small">
+                                <input
+                                    type="text"
+                                    id="near-to"
+                                    name="near-to"
+                                    placeholder="Near to"
+                                    class="form__input"
+                                />
+                            </div>
+                            <span class="form__error"></span>
+                        </div>
+
+                        <!-- Area -->
+                        <div class="form__group">
+                            <div class="form__text-input form__text-input--small">
+                                <input type="text" id="area" name="area" placeholder="Area" class="form__input" />
+                            </div>
+                            <span class="form__error"></span>
+                        </div>
+
+                        <!-- City / District -->
+                        <div class="form__group">
+                            <label for="city" class="form__label form__label--small">City</label>
+                            <div class="form__text-input form__text-input--small">
+                                <input
+                                    type="text"
+                                    id="city"
+                                    name="city"
+                                    placeholder="City"
+                                    class="form__input js-toggle"
+                                    toggle-target="#city-dialog"
+                                    readonly
+                                />
+
+                                <div id="city-dialog" class="form__select-dialog hide">
+                                    <h2 class="form__dialog-heading d-none d-sm-block">City</h2>
+                                    <button
+                                        class="form__close-dialog d-none d-sm-block js-toggle"
+                                        toggle-target="#city-dialog"
+                                    >
+                                        &times;
+                                    </button>
+                                    <div class="form__search">
+                                        <input type="text" placeholder="Search" class="form__search-input" />
+                                        <img src="./assets/icons/search.svg" alt="" class="form__search-icon icon" />
+                                    </div>
+
+                                    <ul class="form__options-list">
+                                        <li class="form__option form__option--current">Dhaka</li>
+                                        <li class="form__option">Chittagong</li>
+                                        <li class="form__option">Khulna</li>
+                                        <li class="form__option">Rajshahi</li>
+                                        <li class="form__option">Sylhet</li>
+                                        <li class="form__option">Rangpur</li>
+                                        <li class="form__option">Barisal</li>
+                                        <li class="form__option">Narayanganj</li>
+                                        <li class="form__option">Gazipur</li>
+                                        <li class="form__option">Comilla</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <span class="form__error"></span>
+                        </div>
+
+                        <div class="form__group form__group--inline">
+                            <label class="form__checkbox">
+                                <input type="checkbox" name="" id="" class="form__checkbox-input d-none" />
+                                <span class="form__checkbox-label">Set as default address</span>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal__bottom">
+                    <button class="btn btn--text modal__btn js-toggle" toggle-target="#add-new-address">Cancel</button>
+                    <button
+                        class="btn btn--primary modal__btn btn--no-margin js-toggle"
+                        toggle-target="#add-new-address"
+                    >
+                        Create
+                    </button>
+                </div>
+            </div>
+
+            <div class="modal__overlay"></div>
+        </div>
+
+        <script src="./assets/js/validator.js"></script>
+        <script>
+            Validator({
+                form: "#form-login",
+                formGroupSelector: ".form__group",
+                errorSelector: ".form__error",
+                rules: [
+                    Validator.isRequired("#name", "Please enter this field. This field is required"),
+                    Validator.minLength("#name", 2),
+
+                    Validator.isRequired("#phone", "Please enter this field. This field is required"),
+                    Validator.minLength("#phone", 10),
+
+                    Validator.isRequired("#house-no", "Please enter this field. This field is required"),
+                    Validator.isRequired("#street-address", "Please enter this field. This field is required"),
+                    Validator.isRequired("#near-to", "Please enter this field. This field is required"),
+                    Validator.isRequired("#area", "Please enter this field. This field is required"),
+                    Validator.isRequired("#city", "Please enter this field. This field is required"),
+                ],
+            });
+        </script>
     </body>
 </html>

@@ -6,6 +6,24 @@
         background: rgba($color: red, $alpha: 0.1);
     }
 
+    &__row {
+        display: flex;
+        gap: 30px;
+
+        @include abstracts.screen(md) {
+            gap: 20px;
+        }
+
+        @include abstracts.screen(sm) {
+            flex-direction: column;
+            gap: 0;
+        }
+
+        > * {
+            flex: 1;
+        }
+    }
+
     &__group {
         margin-top: 30px;
 
@@ -28,10 +46,10 @@
         }
     }
 
+    &__text-area,
     &__text-input {
         display: flex;
         align-items: center;
-        height: 50px;
         padding: 0 12px;
         border-radius: 10px;
         border: 1.5px solid #d2d1d6;
@@ -39,29 +57,169 @@
         &:focus-within {
             border-color: #77dae6;
         }
+    }
 
+    &__text-area {
+        height: 100px;
+        padding: 12px;
+
+        &-input {
+            resize: none;
+        }
+    }
+
+    &__text-input {
+        position: relative;
+        height: 50px;
+
+        &--small {
+            height: 42px;
+        }
         @include abstracts.screen(md) {
             height: 48px;
         }
     }
 
+    &__text-area,
     &__input {
         flex: 1;
+        width: 100%;
         height: 100%;
 
         font-size: 1.8rem;
         font-weight: 500;
         line-height: 144.444%;
 
-        &-icon {
-            margin-left: 12px;
-        }
-
         &::placeholder {
             color: var(--form-placeholder-color);
         }
 
         @include abstracts.screen(md) {
+            font-size: 1.6rem;
+        }
+    }
+
+    &__input {
+        &-icon {
+            margin-left: 12px;
+        }
+    }
+
+    &__select-dialog {
+        position: absolute;
+        bottom: 44px;
+        left: 10px;
+
+        display: flex;
+        flex-direction: column;
+
+        min-width: 230px;
+        max-height: 310px;
+        padding-bottom: 10px;
+        border: 1px solid #d2d1d6;
+        border-radius: 10px;
+        box-shadow: 0 0 5px var(--form-select-dialog-shadow-color);
+        background: var(--form-select-dialog-bg-color);
+        z-index: 1;
+
+        opacity: 0;
+        visibility: hidden;
+
+        transition: opacity, visibility;
+        transition-duration: 0.25s;
+
+        &.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @include abstracts.screen(sm) {
+            position: fixed;
+            inset: 0;
+            max-width: initial;
+            max-height: initial;
+            border-radius: 0;
+        }
+    }
+
+    &__dialog-heading {
+        padding: 20px;
+        font-size: 1.8rem;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    &__close-dialog {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 8px 18px;
+        font-size: 3rem;
+        opacity: 0.8;
+    }
+
+    &__search {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        height: 38px;
+        padding: 0 20px;
+        border-bottom: 1px solid #d2d1d6;
+
+        &-input {
+            flex: 1;
+            height: 100%;
+            font-size: 1.6rem;
+        }
+
+        &-icon {
+            width: 16px;
+            margin-left: 10px;
+        }
+
+        @include abstracts.screen(lg) {
+            height: 48px;
+
+            &-icon {
+                width: 20px;
+            }
+        }
+
+        @include abstracts.screen(sm) {
+            padding: 0 14px;
+            border: 1px solid #d2d1d6;
+            margin: 10px 30px 0;
+            border-radius: 10px;
+        }
+    }
+
+    &__options-list {
+        flex: 1;
+        margin-top: 10px;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+
+        @supports (-webkit-touch-callout: none) {
+            padding-bottom: 300px;
+        }
+    }
+
+    &__option {
+        padding: 8px 20px;
+        font-size: 1.4rem;
+
+        &--current {
+            font-weight: 500;
+            background: rgba($color: #ffb700, $alpha: 0.7);
+        }
+
+        &:not(&--current):hover {
+            background: var(--form-option-hover-bg-color);
+            cursor: pointer;
+        }
+
+        @include abstracts.screen(lg) {
+            padding: 18px 30px;
             font-size: 1.6rem;
         }
     }
